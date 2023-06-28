@@ -1,0 +1,27 @@
+<p>api works!</p>
+<form [formGroup]="registrationform">
+
+    <h1>REGISTRATION FORM :</h1>
+  
+    FIRST NAME:<input type="text" formControlName="firstName" placeholder="firstname"><br><br>
+  
+    LAST NAME: <input type="text" formControlName="lastName" placeholder="lastname"><br><br>
+  
+    EMAIL: <input type="text" formControlName="email" placeholder="email"><br><br>
+    <button (click)="submitform()">submit</button>
+    <button (click)="update()">update</button>
+  
+  </form>
+  
+  <table border="2">
+  <tbody >
+    <tr *ngFor="let user of userData,let i=index">
+      <td>{{i+1}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td><button (click)="edit(user)">edit</button></td>
+      <td><button (click)="deleat(user)">deleat</button></td>
+    </tr>
+  </tbody>
+</table>

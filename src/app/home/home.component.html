@@ -1,0 +1,98 @@
+<p>home works!</p>
+<!-- string interpolistion -->
+<h1>{{name1}}</h1>
+<!-- property binding -->
+<img [src]="img" alt=""><br>
+<button [disabled]="isDisabled">Click me</button>
+<p [class]="classname">i am goodboy</p>
+<h1 [style]="color">this is me</h1>
+<!-- event binding -->
+<input (input)=" oninputvalue ($event)">
+<p>{{value}}</p>
+<!-- twowaydatabinding -->
+<input [(ngModel)]="name" placeholder="Enter your name">
+<p>Your name: {{name}}</p> 
+<!-- directives -->
+<!-- ng class -->
+<p [ngClass]="{active:isactive}">fgdfggfgfgfgfgfgfgf</p>
+<button (click) ="makeactive()">add active</button>
+<!-- ngstyle -->
+<div [ngStyle]="{'color': textColor, 'font-size': fontSize + 'px'}">
+    This text has dynamic styles.
+  </div>
+<!-- ngif -->
+  <p *ngIf="hide">rtyuijkiojgd6ftyuhj</p> 
+  <button (click) ="unhide()">unhide</button>
+<!-- ngfor -->
+<!-- <ul *ngFor="let user of users">
+  <li>{{user.name}}</li>
+  <li>{{user.mobile}}</li>
+  <li>{{user.email}}</li>
+</ul> -->
+<!-- ngswitch -->
+<div [ngSwitch]="op">
+  <div *ngSwitchCase="'+'">{{n1+n2}}</div>
+   <div *ngSwitchCase="'-'">{{n1-n2}}</div> 
+   <div *ngSwitchCase="'*'">{{n1*n2}}</div> 
+   <div *ngSwitchCase="'/'">{{n1/n2}}</div> 
+  <div *ngSwitchDefault>Decontentfault</div>
+</div>
+
+<!--  input decarator p to c && c to p -->
+<table border="2px">
+  <thead>
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+      <th>Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userdata;let i=index">
+      <td>{{user.name}}</td>
+      <td>{{user.mobile}}</td>
+      <td>{{user.email}}</td>
+       <td><button (click)="deleteindex(i)"> delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- input taking value -->
+<section>
+  <form id="form" name="form">
+      <div class="field">
+              <input type="text" [(ngModel)]="userValue"  name="uname" id="uname" placeholder="User Name">
+              <span></span>
+          </div>
+          <div class="field">
+              <input type="email" [(ngModel)]="emailValue"  name="email" id="email" placeholder="email">
+              <span></span>
+          </div>
+          <div class="field">
+              <input type="text" [(ngModel)]="phonenumberValue" name="phonenumber" id="phonenumber" placeholder="phonenumber"> 
+              <span></span>
+          </div>
+          <div class="btndiv">
+              <button (click)="pushing() ">submit</button>
+          </div>
+      </form>
+</section>
+
+<table border="4px">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>email</th>
+      <th>mobile no</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let us of data">
+      <td>{{us.username}}</td>
+      <td>{{us.email}}</td>
+      <td>{{us.phonenumber}}</td>
+    </tr>
+  </tbody>
+</table>
+
+

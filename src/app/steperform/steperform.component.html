@@ -1,0 +1,68 @@
+<p>steperform works!</p>
+<form>
+    <div [ngSwitch]="step">
+        <form [formGroup]="studentForm" *ngSwitchCase="1" (ngSubmit)="onSubmit()">
+            <label for="name">name</label>
+            <input type="text" formControlName="name" placeholder="Student name">
+            <div *ngIf="isFormInvalid && studentForm.controls['name'].errors?.['required']"> please enter name</div>
+
+            <label for="age">age</label>
+            <input type="number" formControlName="age" placeholder="Student age">
+            <div *ngIf="isFormInvalid && studentForm.controls['age'].errors?.['required']"> please enter age</div>
+            <div *ngIf="isFormInvalid && studentForm.controls['age'].errors?.['pattern']"> please enter valid number</div>
+
+            <button (click)="nextstep()">next</button>
+        </form>
+        <form [formGroup]="contactForm" *ngSwitchCase="2" (ngSubmit)="onSubmit()">
+            <label for="mobile">mobile</label>
+            <input type="number" formControlName="password" placeholder="number">
+            <div *ngIf="isFormInvalid && contactForm.controls['password'].errors?.['required']"> please enter email</div>
+            <div *ngIf="isFormInvalid && contactForm.controls['password'].errors?.['pattern']"> please enter correct pattern</div>
+
+            <label for="email">email</label>
+            <input type="email" formControlName="Email" placeholder="Student email">
+            <div *ngIf="isFormInvalid && contactForm.controls['Email'].errors?.['required']"> please enter email</div>
+            <div *ngIf="isFormInvalid && contactForm.controls['Email'].errors?.['email']"> please enter correct pattern</div>
+            <button (click)="prevstep()">previous</button>
+            <button (click)="nextstepp()">next</button>
+        </form>
+        <form [formGroup]="addressForm" *ngSwitchCase="3" (ngSubmit)="onSubmit()">
+            <label for="address">address</label>
+            <input type="text" formControlName="address" placeholder="address ">
+            <div *ngIf="isFormInvalid && addressForm.controls['address'].errors?.['required']"> please enter name</div>
+            <label for="state">state</label>
+            <input type="text" formControlName="state" placeholder="state ">
+            <div *ngIf="isFormInvalid && addressForm.controls['state'].errors?.['required']"> please enter name</div>
+            <button (click)="prevstep()">previous</button>
+            <button *ngIf="!isEdit" type="submit">Submit</button>
+            <button *ngIf="isEdit" (click)="update()">update</button>
+        </form>
+    </div>
+</form>
+
+<table border="4px">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>mobile no</th>
+        <th>email</th>
+        <th>address</th>
+        <th>state</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of dataarray,let i=index">
+        <td>{{i+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.Email}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.state}}</td>
+        <td><button (click)="edit(user)">edit</button></td>
+      <td><button (click)="deleat(user)">deleat</button></td>
+      </tr>
+    </tbody>
+  </table>

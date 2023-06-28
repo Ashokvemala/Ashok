@@ -1,0 +1,54 @@
+{
+  "ashok": [
+    {
+      "firstName": "kumar",
+      "lastName": "kumar",
+      "email": "kumar",
+      "id": 11
+    },
+    {
+      "firstName": "appu",
+      "lastName": "appu",
+      "email": "appu",
+      "id": 12
+    },
+    {
+      "firstName": "ashok",
+      "lastName": "appu",
+      "email": "akapp123@gmail.com",
+      "id": 13
+    },
+    {
+      "firstName": "dharni",
+      "lastName": "bhumi",
+      "email": "email",
+      "id": 14
+    },
+    {
+      "firstName": "rahul",
+      "lastName": "raj",
+      "email": "dfghj",
+      "id": 15
+    }
+  ],
+  "kumar": [
+    {
+      "name": "ashok",
+      "age": 22,
+      "password": 234567,
+      "Email": "ashok376@gmail.com",
+      "address": "asfgh",
+      "state": "sdfg",
+      "id": 1
+    },
+    {
+      "name": "bobby",
+      "age": 20,
+      "password": 2345678,
+      "Email": "bobby678@gmail.com",
+      "address": "pkd",
+      "state": "kurnool",
+      "id": 2
+    }
+  ]
+}

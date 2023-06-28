@@ -1,0 +1,61 @@
+<h1>TEMPLATE DRIVEN FORMS</h1>
+<form #studentform="ngForm" (ngSubmit)="onSubmit(studentform)">
+    <label for="name">Name</label>
+    <input type="text"  name="name" id="name" [(ngModel)]="name" required>
+    <div *ngIf="isFormInvalid && studentform.controls['name'].errors?.['required']">plz enter valid details</div>
+    
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" name="email" id="email"  [(ngModel)]="email" required>
+        <div *ngIf="isFormInvalid && studentform.controls['email'].errors?.['required']"> <b>please enter email</b>
+        </div>
+        <div *ngIf="isFormInvalid && studentform.controls['email'].errors?.['email']"> <b>please enter correct pattern</b>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Class</label>
+        <input type="text" name="class" id="class"  [(ngModel)]="class" required>
+        <div *ngIf="isFormInvalid && studentform.controls['class'].errors?.['required']"> <b>please enter class</b>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Age</label>
+        <input type="number" name="age" id="age"  [(ngModel)]="age" required>
+        <div *ngIf="isFormInvalid && studentform.controls['age'].errors?.['pattern']"> <b>please enter valid
+                number</b>
+        </div>
+        <div *ngIf="isFormInvalid && studentform.controls['age'].errors?.['required']"> <b>please enter age </b></div>
+ </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Marks</label>
+        <input name="marks" id="marks"  [(ngModel)]="marks" required>
+        <div *ngIf="isFormInvalid && studentform.controls['marks'].errors?.['required']"> <b>please enter marks </b></div>
+    </div>
+    <button type="submit">submit</button>
+</form>
+
+<table border="4px">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>age</th>
+        <th>class</th>
+        <th>email</th>
+        <th>marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let us of dataarray">
+        <td>{{us.name}}</td>
+        <td>{{us.age}}</td>
+        <td>{{us.class}}</td>
+        <td>{{us.email}}</td>
+        <td>{{us.marks}}</td>
+      </tr>
+    </tbody>
+  </table>
+<!-- <form #form="ngForm" (ngSubmit)="onsubmit(form)">
+    <input type="text" name="name" id="name" [(ngModel)]="name" required>
+    <div style="color: red;" *ngIf=" form.controls['name'].errors?.['required']" > please enter Name</div><br>
+    <button type="submit">submit</button>
+</form> -->

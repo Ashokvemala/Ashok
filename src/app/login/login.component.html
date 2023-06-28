@@ -1,0 +1,13 @@
+<p>login works!</p>
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+    <input type="email" formControlName="Email" placeholder="Student email">
+    <div *ngIf="isFormInvalid && studentForm.controls['Email'].errors?.['required']"> please enter email</div>
+    <div *ngIf="isFormInvalid && studentForm.controls['Email'].errors?.['email']"> please enter correct pattern</div>
+
+    <input type="number" formControlName="password" placeholder="Student password">
+    <div *ngIf="isFormInvalid && studentForm.controls['password'].errors?.['required']"> please enter email</div>
+    <div *ngIf="isFormInvalid && studentForm.controls['password'].errors?.['pattern']"> please enter correct pattern</div>
+
+    <button type="submit">login</button>
+</form>

@@ -1,0 +1,46 @@
+<p>about works!</p>
+<input type="text"[formControl]="firstname"/>   
+<button (click)="add()">add</button>
+
+<!-- formgroup -->
+<h1>FormGroup</h1>
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Student name">
+    <div *ngIf="isFormInvalid && studentForm.controls['name'].errors?.['required']"> please enter name</div>
+
+    <input type="number" formControlName="age" placeholder="Student age">
+    <div *ngIf="isFormInvalid && studentForm.controls['age'].errors?.['required']"> please enter age</div>
+    <div *ngIf="isFormInvalid && studentForm.controls['age'].errors?.['pattern']"> please enter valid number</div>
+
+    <input type="text" formControlName="class" placeholder="Student class">
+    <div *ngIf="isFormInvalid && studentForm.controls['class'].errors?.['required']"> please enter class</div>
+
+    <input type="email" formControlName="Email" placeholder="Student email">
+    <div *ngIf="isFormInvalid && studentForm.controls['Email'].errors?.['required']"> please enter email</div>
+    <div *ngIf="isFormInvalid && studentForm.controls['Email'].errors?.['email']"> please enter correct pattern</div>
+
+    <input type="number" formControlName="marks" placeholder="Student marks">
+
+    <button type="submit">Submit</button>
+</form>
+
+<table border="4px">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>age</th>
+        <th>class</th>
+        <th>email</th>
+        <th>marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let us of dataarray">
+        <td>{{us.name}}</td>
+        <td>{{us.age}}</td>
+        <td>{{us.class}}</td>
+        <td>{{us.Email}}</td>
+        <td>{{us.marks}}</td>
+      </tr>
+    </tbody>
+  </table>
